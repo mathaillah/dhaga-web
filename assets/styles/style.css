@@ -1,0 +1,388 @@
+ @import url("https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap");
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Quicksand", sans-serif;
+    background: #f4f4f9;
+}
+nav{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: rgb(70, 39, 17);
+    font-family: "Quicksand", sans-serif;
+    top: 0px;
+    position: sticky;
+    z-index: 1;
+  
+}
+
+.logo img{
+    width: 200px;
+}
+.logo {
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    
+ 
+}
+.nav-links li{
+list-style: none;
+}
+.nav-links a{
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+} 
+.burger{
+    display: none ;
+}
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
+    
+    
+}
+@media screen and (max-width:1125px) {
+    .nav-links{
+       width: 60%;
+    }
+    
+    header {
+        display: inline;
+    }
+}
+
+@media screen and (max-width:768px) {
+       
+    body{
+        overflow-x: hidden;
+        
+    }
+    .nav-links{
+       position: fixed;
+       right: 0px;
+       height: 100vh;
+       top: 8vh;
+       background-color: rgb(61, 33, 13);
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       width: 100%;
+       opacity: 80%;
+       transform: translateY(100%);
+       transition: transform 0.5s ease-in;
+       
+    }
+
+    .nav-links li{
+        opacity: 0;
+    
+    }
+    .burger{
+        position: sticky;
+        display: block;
+    }
+    
+    .home .img-cover{
+        width: 100%;
+    }
+    .product-container{
+        width: 100%;
+    }
+ 
+    .location-box img{
+        width: 100%;   
+    }
+}
+.nav-active{
+    transform: translateY(0%);
+}
+@keyframes navLinkFade{
+    from  {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+/* Main */
+
+
+main {
+    padding: 0px;
+    overflow: auto;
+  }
+#content section  {
+    min-height: 20vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}  
+#content section h2{
+    padding: 50px;
+    font-size: 32px;
+    letter-spacing: 5px;
+    color: rgb(61, 33, 13);
+}
+
+.home{
+    width: fit-content;
+  }
+.home img{
+    overflow: auto;
+    width: 100%;
+}
+
+.product-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    grid-gap: 20px;;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.product-box{
+    padding: 10px;
+    background: linear-gradient(90deg, #753f1f, #a35e30);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.product-box h3{
+    font-size: 32px;
+    color: wheat;
+    
+}
+.product-box p{
+    font-size: 27px;
+    color: wheat;
+}
+.product-box img{
+    width: 200px;
+    /* height: auto; */
+}
+.location{
+    padding: 10vh;
+}
+.location-box img{
+    width: 100%;
+}
+
+
+
+
+
+
+aside .popup-container{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    cursor: pointer;
+}
+.popup-icon-holder{
+
+    width: 50vh;
+    height: 60vh;
+    border-radius: 10%;
+    background: #f4f4f9;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 2);
+    text-align: center;
+}
+
+.popup-icon-holder header h2 {
+    color: rgb(70, 39, 17);
+    letter-spacing: 3px;
+    text-align: center;
+}
+.popup-icon-holder table {
+    width: 90%;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+
+.popup-icon-holder img{
+    width: 200px;
+    border-radius: 20px;
+}
+
+.popup{
+    width: 60px;
+    height: 60px;
+    background:green;
+    border-radius: 100%;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 2);
+}
+
+
+
+.popup .icon {
+    font-size: 52px;
+    font-family: monospace;
+    color:rgb(226, 226, 226) ;
+    
+}
+
+.popup-options{
+    list-style-type: none;
+    margin: 0;
+    position: absolute;
+    bottom: 70px;
+    right: -25px;
+    opacity: 0;
+    transition:  all 0.3s ease;
+    transform: scale(0);
+    transform-origin: 90% bottom;
+  
+}
+.popup:hover{
+    opacity: 1;
+    transform: scale(0.8);
+    
+}
+.popup:hover + .popup-options, .popup-options:hover{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup-options article{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+footer {
+    
+    bottom: 0px;
+    width: 100%;
+    background: #000000;
+    color: #aaaaaa;
+ 
+}
+
+ footer .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+footer .container .box {
+    flex: 1;
+    margin: 15px;
+    min-width: 300px;
+}
+
+footer .container .box  h2 {
+    color: rgb(252, 166, 105);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid #555;
+    margin-bottom: 15px;
+}
+
+.box a {
+    color: #aaaaaa;
+    text-decoration: none;
+    display: inline-block;
+}
+
+ .box a i {
+    background: #333333;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 5px;
+    transition: 0.5s linear;
+}
+
+ .box a:hover,
+ .box a:hover i {
+    color: rgb(70, 39, 17);
+    border-radius: 50%;
+}
+
+address a {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    min-height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+span {
+    color: crimson;
+}
+
+form button {
+    width: 50%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: rgb(255, 161, 94);
+
+}
+/* END FOOTER */
+.icons{
+    position: fixed;
+    top: 30%;
+    left: 0%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+
+}
+.icons a{
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 20px;
+    font-family: "Quicksand", sans-serif;
+    margin: 2px;
+    text-align: right;
+    border-radius: 0px 50px 50px 0px;
+    transform: translate(0px, 0px);
+}
+
